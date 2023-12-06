@@ -36,7 +36,7 @@ class YoutubePlayerScaffold extends StatefulWidget {
     this.enableFullScreenOnVerticalDrag = true,
     this.backgroundColor,
     @Deprecated('Unused parameter. Use `YoutubePlayerParam.userAgent` instead.')
-        this.userAgent,
+    this.userAgent,
   });
 
   /// Builds the child widget.
@@ -86,9 +86,11 @@ class YoutubePlayerScaffold extends StatefulWidget {
   State<YoutubePlayerScaffold> createState() => _YoutubePlayerScaffoldState();
 }
 
-class _YoutubePlayerScaffoldState extends State<YoutubePlayerScaffold> {
+class _YoutubePlayerScaffoldState extends State<YoutubePlayerScaffold>
+    with AutomaticKeepAliveClientMixin<YoutubePlayerScaffold> {
   late final GlobalObjectKey _playerKey;
-
+  @override
+  bool get wantKeepAlive => true;
   @override
   void initState() {
     super.initState();
